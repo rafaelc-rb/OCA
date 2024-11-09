@@ -1,10 +1,30 @@
+"""
+Event Scheduler Module
+
+This module provides functionality to schedule events optimally based on
+constraints such as room capacity, availability, and event preferences.
+It uses linear programming for optimization and generates a visual Gantt chart
+to illustrate the schedule.
+"""
+
 import json
 import pulp
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
 def load_data():
-    """Load events and rooms data from JSON files."""
+    """
+    Load events and rooms data from JSON files.
+
+    Returns:
+        tuple: A tuple containing two lists:
+            - events (list): A list of event dictionaries loaded from 'events.json'.
+            - rooms (list): A list of room dictionaries loaded from 'rooms.json'.
+
+    Raises:
+        FileNotFoundError: If 'events.json' or 'rooms.json' files are not found.
+        json.JSONDecodeError: If the JSON files contain invalid JSON.
+    """
     with open('events.json', 'r') as f:
         events = json.load(f)
     with open('rooms.json', 'r') as f:
@@ -12,7 +32,21 @@ def load_data():
     return events, rooms
 
 def prepare_data_structures(events, rooms):
-    """Prepare necessary data structures for the optimization model."""
+    """
+    Prepare necessary data structures for the optimization model.
+
+    Args:
+        events (list): List of event dictionaries.
+        rooms (list): List of room dictionaries.
+
+    Returns:
+        tuple: Contains prepared data structures:
+            - event_names (list): List of event names.
+            - room_names (list): List of room names.
+            - time_slots (list): List of available time slots.
+            - event_dict (dict): Dictionary mapping event names to event data.
+            - room_dict (dict): Dictionary mapping room names to room data.
+    """
     event_names = [event['name'] for event in events]
     room_names = [room['name'] for room in rooms]
     time_slots = list(range(9, 18))  # Time slots from 9h to 17h inclusive
@@ -21,7 +55,18 @@ def prepare_data_structures(events, rooms):
     return event_names, room_names, time_slots, event_dict, room_dict
 
 def create_decision_variables(event_names, room_names, time_slots):
-    """Create decision variables for the optimization model."""
+    """
+    Create decision variables for the optimization model.
+
+    Args:
+        event_names (list): List of event names.
+        room_names (list): List of room names.
+        time_slots (list): List of available time slots.
+
+    Returns:
+        dict: Nested dictionary of decision variables x[e][r][s],
+              where x[e][r][s] = 1 if event e is scheduled in room r at time s.
+    """
     x = {}
     for e in event_names:
         x[e] = {}
@@ -32,7 +77,19 @@ def create_decision_variables(event_names, room_names, time_slots):
     return x
 
 def define_objective_function(model, x, event_dict, event_names, room_names, time_slots):
-    """Define the objective function for the optimization model."""
+    """
+    Define the objective function for the optimization model.
+
+    The objective is to minimize the total deviation from preferred start times.
+
+    Args:
+        model (pulp.LpProblem): The optimization model.
+        x (dict): Decision variables.
+        event_dict (dict): Dictionary mapping event names to event data.
+        event_names (list): List of event names.
+        room_names (list): List of room names.
+        time_slots (list): List of available time slots.
+    """
     model += pulp.lpSum([
         x[e][r][s] * abs(s - event_dict[e]['preferred_start'])
         for e in event_names
@@ -41,7 +98,24 @@ def define_objective_function(model, x, event_dict, event_names, room_names, tim
     ])
 
 def add_constraints(model, x, event_dict, room_dict, event_names, room_names, time_slots):
-    """Add constraints to the optimization model."""
+    """
+    Add constraints to the optimization model.
+
+    Constraints include:
+    - Each event must be scheduled exactly once.
+    - Room capacity must be sufficient for the event.
+    - Events must be scheduled within room availability.
+    - No overlapping events in the same room.
+
+    Args:
+        model (pulp.LpProblem): The optimization model.
+        x (dict): Decision variables.
+        event_dict (dict): Dictionary mapping event names to event data.
+        room_dict (dict): Dictionary mapping room names to room data.
+        event_names (list): List of event names.
+        room_names (list): List of room names.
+        time_slots (list): List of available time slots.
+    """
     # Each event must be scheduled exactly once
     for e in event_names:
         model += pulp.lpSum([
@@ -85,13 +159,33 @@ def add_constraints(model, x, event_dict, room_dict, event_names, room_names, ti
             ]) <= 1, f"NonOverlap_{r}_{t}"
 
 def solve_model(model):
-    """Solve the optimization model."""
+    """
+    Solve the optimization model.
+
+    Args:
+        model (pulp.LpProblem): The optimization model to solve.
+
+    Returns:
+        int: The status of the solution (e.g., pulp.LpStatusOptimal).
+    """
     solver = pulp.PULP_CBC_CMD(msg=False)
     result_status = model.solve(solver)
     return result_status
 
 def extract_schedule(x, event_dict, event_names, room_names, time_slots):
-    """Extract the schedule from the optimization model solution."""
+    """
+    Extract the schedule from the optimization model solution.
+
+    Args:
+        x (dict): Decision variables.
+        event_dict (dict): Dictionary mapping event names to event data.
+        event_names (list): List of event names.
+        room_names (list): List of room names.
+        time_slots (list): List of available time slots.
+
+    Returns:
+        list: List of dictionaries containing scheduled event information.
+    """
     schedule = []
     for e in event_names:
         for r in room_names:
@@ -108,7 +202,12 @@ def extract_schedule(x, event_dict, event_names, room_names, time_slots):
     return schedule
 
 def print_schedule(schedule):
-    """Print the optimal schedule."""
+    """
+    Print the optimal schedule to the console.
+
+    Args:
+        schedule (list): List of scheduled events to print.
+    """
     print("Optimal Schedule:")
     for event in schedule:
         print(f"Event: {event['event']}")
@@ -117,7 +216,16 @@ def print_schedule(schedule):
         print(f"  Participants: {event['participants']}\n")
 
 def generate_gantt_chart(schedule, room_names):
-    """Generate a Gantt chart illustrating the schedule."""
+    """
+    Generate a Gantt chart illustrating the schedule.
+
+    Args:
+        schedule (list): List of scheduled events.
+        room_names (list): List of room names.
+
+    Displays:
+        A matplotlib plot showing the Gantt chart of the schedule.
+    """
     # Assign colors to events
     colors = plt.cm.tab20.colors
     event_colors = {event['event']: colors[i % len(colors)] for i, event in enumerate(schedule)}
@@ -153,6 +261,20 @@ def generate_gantt_chart(schedule, room_names):
     plt.show()
 
 def main():
+    """
+    Main function to execute the event scheduling optimization and visualization.
+
+    Steps:
+    - Load data from JSON files.
+    - Prepare data structures for optimization.
+    - Initialize the optimization model.
+    - Create decision variables.
+    - Define the objective function.
+    - Add constraints to the model.
+    - Solve the model.
+    - Extract and display the schedule.
+    - Generate and display the Gantt chart.
+    """
     # Load data
     events, rooms = load_data()
     
