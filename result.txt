@@ -1,0 +1,26 @@
+Optimal Schedule:
+Event: Workshop de IA
+  Room: Sala B
+  Time: 9h to 12h
+  Participants: 80
+
+Event: Palestra sobre Cloud
+  Room: Sala C
+  Time: 10h to 12h
+  Participants: 40
+
+Event: Sessão de Networking
+  Room: Sala D
+  Time: 12h to 13h
+  Participants: 60
+
+Event: Treinamento DevOps
+  Room: Sala A
+  Time: 14h to 18h
+  Participants: 120
+
+Event: Startups
+  Room: Sala D
+  Time: 15h to 17h
+  Participants: 100
+
