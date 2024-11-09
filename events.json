@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Workshop de IA",
+        "duration": 3,
+        "preferred_start": 9,
+        "participants": 80
+    },
+    {
+        "name": "Palestra sobre Cloud",
+        "duration": 2,
+        "preferred_start": 10,
+        "participants": 40
+    },
+    {
+        "name": "Sessão de Networking",
+        "duration": 1,
+        "preferred_start": 12,
+        "participants": 60
+    },
+    {
+        "name": "Treinamento DevOps",
+        "duration": 4,
+        "preferred_start": 14,
+        "participants": 120
+    },
+    {
+        "name": "Startups",
+        "duration": 2,
+        "preferred_start": 16,
+        "participants": 100
+    }
+]
