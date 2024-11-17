@@ -1,22 +1,22 @@
 [
     {
-        "name": "Sala A",
+        "name": "Auditório Principal",
         "capacity": 150,
-        "availability": [[10, 12], [14, 18]]
+        "availability": [[9, 13], [14, 18]]
     },
     {
-        "name": "Sala B",
-        "capacity": 80,
-        "availability": [[9, 12], [13, 17]]
-    },
-    {
-        "name": "Sala C",
-        "capacity": 50,
+        "name": "Sala Multiuso",
+        "capacity": 100,
         "availability": [[9, 17]]
     },
     {
-        "name": "Sala D",
-        "capacity": 100,
-        "availability": [[11, 13], [15, 17]]
+        "name": "Sala de Conferências",
+        "capacity": 80,
+        "availability": [[10, 12], [13, 17]]
+    },
+    {
+        "name": "Sala de Reuniões",
+        "capacity": 50,
+        "availability": [[9, 11], [12, 16]]
     }
 ]

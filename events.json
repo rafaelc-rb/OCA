@@ -1,32 +1,27 @@
 [
     {
-        "name": "Workshop de IA",
-        "duration": 3,
-        "preferred_start": 9,
-        "participants": 80
-    },
-    {
-        "name": "Palestra sobre Cloud",
-        "duration": 2,
-        "preferred_start": 10,
-        "participants": 40
-    },
-    {
-        "name": "Sessão de Networking",
-        "duration": 1,
-        "preferred_start": 12,
-        "participants": 60
-    },
-    {
-        "name": "Treinamento DevOps",
+        "name": "Conferência de Tecnologia",
         "duration": 4,
-        "preferred_start": 14,
+        "participants": 150
+    },
+    {
+        "name": "Workshop de Programação",
+        "duration": 2,
+        "participants": 75
+    },
+    {
+        "name": "Seminário de Saúde",
+        "duration": 3,
         "participants": 120
     },
     {
-        "name": "Startups",
+        "name": "Palestra Motivacional",
+        "duration": 1,
+        "participants": 50
+    },
+    {
+        "name": "Sessão de Treinamento",
         "duration": 2,
-        "preferred_start": 16,
-        "participants": 100
+        "participants": 80
     }
 ]

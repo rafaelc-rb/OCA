@@ -1,26 +1,56 @@
-Optimal Schedule:
-Event: Workshop de IA
-  Room: Sala B
-  Time: 9h to 12h
-  Participants: 80
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
 
-Event: Palestra sobre Cloud
-  Room: Sala C
-  Time: 10h to 12h
-  Participants: 40
+command line - /Users/rafa/.pyenv/versions/3.10.14/lib/python3.10/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/rj/slnb87ln15zbnqxwyw9f7q1h0000gn/T/fff7f930f73b44f8ba140898113de204-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /var/folders/rj/slnb87ln15zbnqxwyw9f7q1h0000gn/T/fff7f930f73b44f8ba140898113de204-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 38 COLUMNS
+At line 415 RHS
+At line 449 BOUNDS
+At line 518 ENDATA
+Problem MODEL has 33 rows, 68 columns and 184 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 35 - 0.00 seconds
+Cgl0003I 16 fixed, 0 tightened bounds, 5 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 1 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 23 rows, 45 columns (45 integer (45 of which binary)) and 121 elements
+Cutoff increment increased from 1e-05 to 4.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 35
+Cbc0038I Before mini branch and bound, 44 integers at bound fixed and 1 continuous
+Cbc0038I Mini branch and bound did not improve solution (0.02 seconds)
+Cbc0038I After 0.02 seconds - Feasibility pump exiting with objective of 35 - took 0.00 seconds
+Cbc0012I Integer solution of 35 found by feasibility pump after 0 iterations and 0 nodes (0.02 seconds)
+Cbc0001I Search completed - best objective 35, took 0 iterations and 0 nodes (0.02 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 35 to 35
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
 
-Event: Sessão de Networking
-  Room: Sala D
-  Time: 12h to 13h
-  Participants: 60
+Result - Optimal solution found
 
-Event: Treinamento DevOps
-  Room: Sala A
-  Time: 14h to 18h
-  Participants: 120
+Objective value:                35.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.02
 
-Event: Startups
-  Room: Sala D
-  Time: 15h to 17h
-  Participants: 100
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.01   (Wallclock seconds):       0.03
 
+Status da solução: Optimal
+
+Evento 'Conferência de Tecnologia' alocado na 'Auditório Principal' iniciando às 14h até às 18h.
+Evento 'Workshop de Programação' alocado na 'Sala de Conferências' iniciando às 14h até às 16h.
+Evento 'Seminário de Saúde' alocado na 'Auditório Principal' iniciando às 9h até às 12h.
+Evento 'Palestra Motivacional' alocado na 'Sala de Reuniões' iniciando às 14h até às 15h.
+Evento 'Sessão de Treinamento' alocado na 'Sala de Conferências' iniciando às 10h até às 12h.
