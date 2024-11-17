@@ -1,5 +1,6 @@
 import json
 from pulp import LpProblem, LpVariable, LpBinary, lpSum, LpMinimize, LpStatus
+import matplotlib.pyplot as plt
 
 # Carrega os dados dos arquivos JSON
 with open('events.json', 'r', encoding='utf-8') as f:
@@ -79,9 +80,55 @@ prob.solve()
 # Exibe o status da solução
 print(f"Status da solução: {LpStatus[prob.status]}\n")
 
-# Exibe a alocação dos eventos
+# Coleta a alocação dos eventos para exibição e plotagem
+allocation = []
 for (idx_e, idx_r, start), var in variables.items():
     if var.varValue == 1:
         event = events[idx_e]
         room = rooms[idx_r]
-        print(f"Evento '{event['name']}' alocado na '{room['name']}' iniciando às {start}h até às {start + event['duration']}h.")
+        end_time = start + event['duration']
+        print(f"Evento '{event['name']}' alocado na '{room['name']}' iniciando às {start}h até às {end_time}h.")
+        allocation.append({
+            'Event': event['name'],
+            'Room': room['name'],
+            'Start': start,
+            'End': end_time
+        })
+
+# Cria o gráfico de Gantt
+import numpy as np
+
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Cria uma paleta de cores para os eventos
+event_names = [event['name'] for event in events]
+colors = plt.get_cmap('tab20')
+
+# Mapeia cada evento a uma cor distinta
+color_dict = {event_name: colors(i / len(event_names)) for i, event_name in enumerate(event_names)}
+
+# Prepara os dados para o gráfico
+rooms_names = [room['name'] for room in rooms]
+y_ticks = np.arange(len(rooms_names))
+height = 0.8
+
+for alloc in allocation:
+    room_idx = rooms_names.index(alloc['Room'])
+    ax.barh(room_idx, alloc['End'] - alloc['Start'], left=alloc['Start'], height=height,
+            align='center', color=color_dict[alloc['Event']], edgecolor='black')
+    ax.text(alloc['Start'] + (alloc['End'] - alloc['Start']) / 2, room_idx,
+            alloc['Event'], va='center', ha='center', color='white', fontsize=9)
+
+# Configurações do gráfico
+ax.set_yticks(y_ticks)
+ax.set_yticklabels(rooms_names)
+ax.set_xlabel('Horário')
+ax.set_ylabel('Salas')
+ax.set_title('Programação de Eventos')
+
+ax.set_xlim(9, 18)
+ax.set_xticks(range(9, 19))
+ax.grid(True, axis='x', linestyle='--', alpha=0.5)
+
+plt.tight_layout()
+plt.show()

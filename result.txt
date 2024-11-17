@@ -2,7 +2,7 @@ Welcome to the CBC MILP Solver
 Version: 2.10.3 
 Build Date: Dec 15 2019 
 
-command line - /Users/rafa/.pyenv/versions/3.10.14/lib/python3.10/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/rj/slnb87ln15zbnqxwyw9f7q1h0000gn/T/fff7f930f73b44f8ba140898113de204-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /var/folders/rj/slnb87ln15zbnqxwyw9f7q1h0000gn/T/fff7f930f73b44f8ba140898113de204-pulp.sol (default strategy 1)
+command line - /Users/rafa/.pyenv/versions/3.10.14/lib/python3.10/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/rj/slnb87ln15zbnqxwyw9f7q1h0000gn/T/efec2707655d4119942f68d5de355694-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /var/folders/rj/slnb87ln15zbnqxwyw9f7q1h0000gn/T/efec2707655d4119942f68d5de355694-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
 At line 38 COLUMNS
@@ -21,10 +21,10 @@ Cutoff increment increased from 1e-05 to 4.9999
 Cbc0038I Initial state - 0 integers unsatisfied sum - 0
 Cbc0038I Solution found of 35
 Cbc0038I Before mini branch and bound, 44 integers at bound fixed and 1 continuous
-Cbc0038I Mini branch and bound did not improve solution (0.02 seconds)
-Cbc0038I After 0.02 seconds - Feasibility pump exiting with objective of 35 - took 0.00 seconds
-Cbc0012I Integer solution of 35 found by feasibility pump after 0 iterations and 0 nodes (0.02 seconds)
-Cbc0001I Search completed - best objective 35, took 0 iterations and 0 nodes (0.02 seconds)
+Cbc0038I Mini branch and bound did not improve solution (0.01 seconds)
+Cbc0038I After 0.01 seconds - Feasibility pump exiting with objective of 35 - took 0.00 seconds
+Cbc0012I Integer solution of 35 found by feasibility pump after 0 iterations and 0 nodes (0.01 seconds)
+Cbc0001I Search completed - best objective 35, took 0 iterations and 0 nodes (0.01 seconds)
 Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
 Cuts at root node changed objective from 35 to 35
 Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
@@ -42,10 +42,10 @@ Objective value:                35.00000000
 Enumerated nodes:               0
 Total iterations:               0
 Time (CPU seconds):             0.00
-Time (Wallclock seconds):       0.02
+Time (Wallclock seconds):       0.01
 
 Option for printingOptions changed from normal to all
-Total time (CPU seconds):       0.01   (Wallclock seconds):       0.03
+Total time (CPU seconds):       0.01   (Wallclock seconds):       0.02
 
 Status da solução: Optimal
 
