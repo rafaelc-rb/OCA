@@ -195,7 +195,7 @@ def plot_schedule(allocation, events, rooms):
         ax.barh(room_idx, alloc['End'] - alloc['Start'], left=alloc['Start'], height=height,
                 align='center', color=color_dict[alloc['Event']], edgecolor='black')
         ax.text(alloc['Start'] + (alloc['End'] - alloc['Start']) / 2, room_idx,
-                alloc['Event'], va='center', ha='center', color='white', fontsize=9)
+                alloc['Event'], va='center', ha='center', color='black', fontsize=9)
 
     # Configurações do gráfico
     ax.set_yticks(y_ticks)
