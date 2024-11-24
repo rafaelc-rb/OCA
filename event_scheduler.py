@@ -2,23 +2,61 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 from pulp import LpProblem, LpVariable, LpBinary, lpSum, LpMinimize, LpStatus
+import time
+import argparse
+import random
 
-def load_data(events_file='events.json', rooms_file='rooms.json'):
+def load_data(events_file='events.json', rooms_file='rooms.json', use_fake_data=False, num_events=0, num_rooms=0):
     """
-    Carrega os dados dos arquivos JSON de eventos e salas.
+    Carrega os dados dos arquivos JSON de eventos e salas ou gera dados falsos.
 
     Args:
         events_file (str): Caminho para o arquivo JSON de eventos.
         rooms_file (str): Caminho para o arquivo JSON de salas.
+        use_fake_data (bool): Indica se deve gerar dados falsos.
+        num_events (int): Número de eventos a serem gerados.
+        num_rooms (int): Número de salas a serem geradas.
 
     Returns:
         tuple: Uma tupla contendo a lista de eventos e a lista de salas.
     """
-    with open(events_file, 'r', encoding='utf-8') as f:
-        events = json.load(f)
+    if use_fake_data:
+        events, rooms = generate_fake_data(num_events, num_rooms)
+    else:
+        with open(events_file, 'r', encoding='utf-8') as f:
+            events = json.load(f)
+        with open(rooms_file, 'r', encoding='utf-8') as f:
+            rooms = json.load(f)
+    return events, rooms
 
-    with open(rooms_file, 'r', encoding='utf-8') as f:
-        rooms = json.load(f)
+def generate_fake_data(num_events, num_rooms):
+    """
+    Gera dados falsos para eventos e salas.
+
+    Args:
+        num_events (int): Número de eventos a serem gerados.
+        num_rooms (int): Número de salas a serem geradas.
+
+    Returns:
+        tuple: Uma tupla contendo a lista de eventos e a lista de salas.
+    """
+    events = []
+    for i in range(num_events):
+        event = {
+            'name': f'Evento {i+1}',
+            'duration': random.randint(1, 4),  # Duração entre 1 e 4 horas
+            'participants': random.randint(10, 100)  # Participantes entre 10 e 100
+        }
+        events.append(event)
+
+    rooms = []
+    for i in range(num_rooms):
+        room = {
+            'name': f'Sala {i+1}',
+            'capacity': random.randint(20, 120),  # Capacidade entre 20 e 120
+            'availability': [[9, 18]]  # Disponibilidade das 9h às 18h
+        }
+        rooms.append(room)
 
     return events, rooms
 
@@ -211,33 +249,74 @@ def plot_schedule(allocation, events, rooms):
     plt.tight_layout()
     plt.show()
 
+def code_complexity_analysis(event_counts, num_rooms):
+    """
+    Realiza a análise de complexidade do código, medindo o tempo de execução para diferentes quantidades de eventos.
+
+    Args:
+        event_counts (list): Lista com as quantidades de eventos a serem testadas.
+        num_rooms (int): Número de salas a serem usadas em todos os testes.
+    """
+    execution_times = []
+
+    for num_events in event_counts:
+        print(f"Executando análise para {num_events} eventos...")
+        events, rooms = load_data(use_fake_data=True, num_events=num_events, num_rooms=num_rooms)
+        start_time = time.time()
+        room_available_times = process_room_availabilities(rooms)
+        variables, possible_starts = generate_possible_starts(events, rooms, room_available_times)
+        prob = create_optimization_problem(events, rooms, variables, possible_starts)
+        status = solve_problem(prob)
+        allocation = collect_allocation(variables, events, rooms)
+        end_time = time.time()
+        execution_times.append(end_time - start_time)
+
+    # Plotando o gráfico de tempo de execução vs número de eventos
+    plt.figure(figsize=(10, 6))
+    plt.plot(event_counts, execution_times, marker='o')
+    plt.xlabel('Número de Eventos')
+    plt.ylabel('Tempo de Execução (s)')
+    plt.title('Análise de Complexidade do Código')
+    plt.grid(True)
+    plt.show()
+
 def main():
     """
     Função principal que coordena a execução do programa.
     """
-    # Carrega os dados
-    events, rooms = load_data()
+    parser = argparse.ArgumentParser(description='Programa de Agendamento de Eventos')
+    parser.add_argument('--analysis', action='store_true', help='Executa a análise de complexidade do código')
+    parser.add_argument('--event_counts', type=str, default='5,10,30,50', help='Quantidades de eventos para análise, separadas por vírgula')
+    parser.add_argument('--num_rooms', type=int, default=5, help='Número de salas para análise')
+    args = parser.parse_args()
 
-    # Processa as disponibilidades das salas
-    room_available_times = process_room_availabilities(rooms)
+    if args.analysis:
+        event_counts = [int(x) for x in args.event_counts.split(',')]
+        code_complexity_analysis(event_counts, args.num_rooms)
+    else:
+        # Carrega os dados
+        events, rooms = load_data()
 
-    # Gera possíveis horários de início para os eventos
-    variables, possible_starts = generate_possible_starts(events, rooms, room_available_times)
+        # Processa as disponibilidades das salas
+        room_available_times = process_room_availabilities(rooms)
 
-    # Cria o problema de otimização
-    prob = create_optimization_problem(events, rooms, variables, possible_starts)
+        # Gera possíveis horários de início para os eventos
+        variables, possible_starts = generate_possible_starts(events, rooms, room_available_times)
 
-    # Resolve o problema
-    status = solve_problem(prob)
+        # Cria o problema de otimização
+        prob = create_optimization_problem(events, rooms, variables, possible_starts)
 
-    # Coleta a alocação dos eventos
-    allocation = collect_allocation(variables, events, rooms)
+        # Resolve o problema
+        status = solve_problem(prob)
 
-    # Exibe os resultados
-    display_results(status, allocation)
+        # Coleta a alocação dos eventos
+        allocation = collect_allocation(variables, events, rooms)
 
-    # Plota a programação dos eventos
-    plot_schedule(allocation, events, rooms)
+        # Exibe os resultados
+        display_results(status, allocation)
+
+        # Plota a programação dos eventos
+        plot_schedule(allocation, events, rooms)
 
 if __name__ == "__main__":
     main()
