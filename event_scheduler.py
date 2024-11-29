@@ -249,36 +249,41 @@ def plot_schedule(allocation, events, rooms):
     plt.tight_layout()
     plt.show()
 
-def code_complexity_analysis(event_counts, num_rooms):
+def code_complexity_analysis(event_counts, room_counts):
     """
-    Realiza a análise de complexidade do código, medindo o tempo de execução para diferentes quantidades de eventos.
+    Realiza a análise de complexidade do código para diferentes quantidades de eventos e salas.
 
     Args:
         event_counts (list): Lista com as quantidades de eventos a serem testadas.
-        num_rooms (int): Número de salas a serem usadas em todos os testes.
+        room_counts (list): Lista com as quantidades de salas a serem testadas.
     """
-    execution_times = []
+    execution_times = {num_rooms: [] for num_rooms in room_counts}
 
-    for num_events in event_counts:
-        print(f"Executando análise para {num_events} eventos...")
-        events, rooms = load_data(use_fake_data=True, num_events=num_events, num_rooms=num_rooms)
-        start_time = time.time()
-        room_available_times = process_room_availabilities(rooms)
-        variables, possible_starts = generate_possible_starts(events, rooms, room_available_times)
-        prob = create_optimization_problem(events, rooms, variables, possible_starts)
-        status = solve_problem(prob)
-        allocation = collect_allocation(variables, events, rooms)
-        end_time = time.time()
-        execution_times.append(end_time - start_time)
+    for num_rooms in room_counts:
+        print(f"Analisando para {num_rooms} salas...")
+        for num_events in event_counts:
+            print(f"  - {num_events} eventos")
+            events, rooms = load_data(use_fake_data=True, num_events=num_events, num_rooms=num_rooms)
+            start_time = time.time()
+            room_available_times = process_room_availabilities(rooms)
+            variables, possible_starts = generate_possible_starts(events, rooms, room_available_times)
+            prob = create_optimization_problem(events, rooms, variables, possible_starts)
+            solve_problem(prob)
+            end_time = time.time()
+            execution_times[num_rooms].append(end_time - start_time)
 
-    # Plotando o gráfico de tempo de execução vs número de eventos
+    # Plotando o gráfico de tempo de execução vs número de eventos para diferentes números de salas
     plt.figure(figsize=(10, 6))
-    plt.plot(event_counts, execution_times, marker='o')
+    for num_rooms, times in execution_times.items():
+        plt.plot(event_counts, times, marker='o', label=f'{num_rooms} Salas')
+
     plt.xlabel('Número de Eventos')
     plt.ylabel('Tempo de Execução (s)')
     plt.title('Análise de Complexidade do Código')
+    plt.legend(title="Número de Salas")
     plt.grid(True)
     plt.show()
+
 
 def main():
     """
@@ -287,36 +292,24 @@ def main():
     parser = argparse.ArgumentParser(description='Programa de Agendamento de Eventos')
     parser.add_argument('--analysis', action='store_true', help='Executa a análise de complexidade do código')
     parser.add_argument('--event_counts', type=str, default='5,10,30,50', help='Quantidades de eventos para análise, separadas por vírgula')
-    parser.add_argument('--num_rooms', type=int, default=5, help='Número de salas para análise')
+    parser.add_argument('--num_rooms', type=str, default='5,10,15', help='Quantidades de salas para análise, separadas por vírgula')
     args = parser.parse_args()
 
     if args.analysis:
         event_counts = [int(x) for x in args.event_counts.split(',')]
-        code_complexity_analysis(event_counts, args.num_rooms)
+        room_counts = [int(x) for x in args.num_rooms.split(',')]
+        code_complexity_analysis(event_counts, room_counts)
     else:
-        # Carrega os dados
+        # Fluxo padrão
         events, rooms = load_data()
-
-        # Processa as disponibilidades das salas
         room_available_times = process_room_availabilities(rooms)
-
-        # Gera possíveis horários de início para os eventos
         variables, possible_starts = generate_possible_starts(events, rooms, room_available_times)
-
-        # Cria o problema de otimização
         prob = create_optimization_problem(events, rooms, variables, possible_starts)
-
-        # Resolve o problema
         status = solve_problem(prob)
-
-        # Coleta a alocação dos eventos
         allocation = collect_allocation(variables, events, rooms)
-
-        # Exibe os resultados
         display_results(status, allocation)
-
-        # Plota a programação dos eventos
         plot_schedule(allocation, events, rooms)
+
 
 if __name__ == "__main__":
     main()
