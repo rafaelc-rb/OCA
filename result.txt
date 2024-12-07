@@ -2,31 +2,39 @@ Welcome to the CBC MILP Solver
 Version: 2.10.3 
 Build Date: Dec 15 2019 
 
-command line - /Users/rafa/.pyenv/versions/3.10.14/lib/python3.10/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/rj/slnb87ln15zbnqxwyw9f7q1h0000gn/T/979967443e8f4156bd0213752f881f32-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /var/folders/rj/slnb87ln15zbnqxwyw9f7q1h0000gn/T/979967443e8f4156bd0213752f881f32-pulp.sol (default strategy 1)
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/4d33698458e649d8aaa6fee89d228960-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/4d33698458e649d8aaa6fee89d228960-pulp.sol (default strategy 1)
 At line 2 NAME          MODEL
 At line 3 ROWS
-At line 38 COLUMNS
-At line 415 RHS
-At line 449 BOUNDS
-At line 518 ENDATA
-Problem MODEL has 33 rows, 68 columns and 184 elements
+At line 105 COLUMNS
+At line 4906 RHS
+At line 5007 BOUNDS
+At line 5808 ENDATA
+Problem MODEL has 100 rows, 800 columns and 2400 elements
 Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
 Option for timeMode changed from cpu to elapsed
-Continuous objective value is 35 - 0.00 seconds
-Cgl0003I 16 fixed, 0 tightened bounds, 5 strengthened rows, 0 substitutions
-Cgl0003I 0 fixed, 0 tightened bounds, 1 strengthened rows, 0 substitutions
-Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
-Cgl0004I processed model has 23 rows, 45 columns (45 integer (45 of which binary)) and 121 elements
-Cutoff increment increased from 1e-05 to 4.9999
+Continuous objective value is 500 - 0.00 seconds
+Cgl0003I 0 fixed, 0 tightened bounds, 10 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 10 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 10 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 10 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 10 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 10 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 10 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 10 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 10 strengthened rows, 0 substitutions
+Cgl0004I processed model has 100 rows, 800 columns (800 integer (800 of which binary)) and 2490 elements
+Cutoff increment increased from 1e-05 to 49.9999
 Cbc0038I Initial state - 0 integers unsatisfied sum - 0
-Cbc0038I Solution found of 35
-Cbc0038I Before mini branch and bound, 44 integers at bound fixed and 1 continuous
-Cbc0038I Mini branch and bound did not improve solution (0.02 seconds)
-Cbc0038I After 0.02 seconds - Feasibility pump exiting with objective of 35 - took 0.00 seconds
-Cbc0012I Integer solution of 35 found by feasibility pump after 0 iterations and 0 nodes (0.02 seconds)
-Cbc0001I Search completed - best objective 35, took 0 iterations and 0 nodes (0.02 seconds)
+Cbc0038I Solution found of 500
+Cbc0038I Before mini branch and bound, 800 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (0.08 seconds)
+Cbc0038I After 0.08 seconds - Feasibility pump exiting with objective of 500 - took 0.00 seconds
+Cbc0012I Integer solution of 500 found by feasibility pump after 0 iterations and 0 nodes (0.08 seconds)
+Cbc0001I Search completed - best objective 500, took 0 iterations and 0 nodes (0.08 seconds)
 Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
-Cuts at root node changed objective from 35 to 35
+Cuts at root node changed objective from 500 to 500
 Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
 Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
 Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
@@ -38,19 +46,867 @@ ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after addin
 
 Result - Optimal solution found
 
-Objective value:                35.00000000
+Objective value:                500.00000000
 Enumerated nodes:               0
 Total iterations:               0
-Time (CPU seconds):             0.00
-Time (Wallclock seconds):       0.02
+Time (CPU seconds):             0.06
+Time (Wallclock seconds):       0.08
 
 Option for printingOptions changed from normal to all
-Total time (CPU seconds):       0.01   (Wallclock seconds):       0.03
+Total time (CPU seconds):       0.07   (Wallclock seconds):       0.10
 
-Status da solução: Optimal
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
 
-Evento 'Conferência de Tecnologia' alocado na 'Auditório Principal' iniciando às 14h até às 18h.
-Evento 'Workshop de Programação' alocado na 'Sala de Conferências' iniciando às 14h até às 16h.
-Evento 'Seminário de Saúde' alocado na 'Auditório Principal' iniciando às 9h até às 12h.
-Evento 'Palestra Motivacional' alocado na 'Sala de Reuniões' iniciando às 14h até às 15h.
-Evento 'Sessão de Treinamento' alocado na 'Sala de Conferências' iniciando às 10h até às 12h.
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/94279e7dfb4e46b3b5df37f4486ac7e9-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/94279e7dfb4e46b3b5df37f4486ac7e9-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 145 COLUMNS
+At line 24146 RHS
+At line 24287 BOUNDS
+At line 28288 ENDATA
+Problem MODEL has 140 rows, 4000 columns and 12000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+Problem is infeasible - 0.01 seconds
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.02   (Wallclock seconds):       0.02
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/df53aacbe2504a6299475e21a2287aba-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/df53aacbe2504a6299475e21a2287aba-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 195 COLUMNS
+At line 48196 RHS
+At line 48387 BOUNDS
+At line 56388 ENDATA
+Problem MODEL has 190 rows, 8000 columns and 24000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+using 156 columns not 4320
+Problem is infeasible - 0.02 seconds
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.05   (Wallclock seconds):       0.05
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/4ea0dedb29c04915a24cd0293841daf5-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/4ea0dedb29c04915a24cd0293841daf5-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 395 COLUMNS
+At line 144396 RHS
+At line 144787 BOUNDS
+At line 168788 ENDATA
+Problem MODEL has 390 rows, 24000 columns and 72000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+using 370 columns not 4752
+Problem is infeasible - 0.06 seconds
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.13   (Wallclock seconds):       0.14
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/ef7e6d4551cc411aade7f98daca824ce-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/ef7e6d4551cc411aade7f98daca824ce-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 595 COLUMNS
+At line 240596 RHS
+At line 241187 BOUNDS
+At line 281188 ENDATA
+Problem MODEL has 590 rows, 40000 columns and 120000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+using 567 columns not 4752
+Problem is infeasible - 0.11 seconds
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.22   (Wallclock seconds):       0.23
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/2367e745d1aa46be9f90421f48d40370-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/2367e745d1aa46be9f90421f48d40370-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 465 COLUMNS
+At line 24466 RHS
+At line 24927 BOUNDS
+At line 28928 ENDATA
+Problem MODEL has 460 rows, 4000 columns and 12000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 500 - 0.01 seconds
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0004I processed model has 460 rows, 4000 columns (4000 integer (4000 of which binary)) and 12900 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 19 integers unsatisfied sum - 6
+Cbc0038I Pass   1: suminf.    0.00000 (0) obj. 500 iterations 36
+Cbc0038I Solution found of 500
+Cbc0038I Before mini branch and bound, 3979 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (0.22 seconds)
+Cbc0038I After 0.22 seconds - Feasibility pump exiting with objective of 500 - took 0.00 seconds
+Cbc0012I Integer solution of 500 found by feasibility pump after 0 iterations and 0 nodes (0.22 seconds)
+Cbc0001I Search completed - best objective 500, took 0 iterations and 0 nodes (0.22 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 500 to 500
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                500.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.22
+Time (Wallclock seconds):       0.23
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.23   (Wallclock seconds):       0.24
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/f0b5027bd00b4e55ab7aea4a18abffcf-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/f0b5027bd00b4e55ab7aea4a18abffcf-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 505 COLUMNS
+At line 120506 RHS
+At line 121007 BOUNDS
+At line 141008 ENDATA
+Problem MODEL has 500 rows, 20000 columns and 60000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 3.0002e-11
+column inf 5.49991e-11
+using 77 columns not 3600
+Continuous objective value is 2500 - 0.02 seconds
+Cgl0003I 0 fixed, 0 tightened bounds, 50 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 50 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 50 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 50 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 50 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 50 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 50 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 50 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 50 strengthened rows, 0 substitutions
+Cgl0004I processed model has 500 rows, 20000 columns (20000 integer (20000 of which binary)) and 60450 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 2500
+Cbc0038I Before mini branch and bound, 20000 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (1.27 seconds)
+Cbc0038I After 1.27 seconds - Feasibility pump exiting with objective of 2500 - took 0.01 seconds
+Cbc0012I Integer solution of 2500 found by feasibility pump after 0 iterations and 0 nodes (1.27 seconds)
+Cbc0001I Search completed - best objective 2500, took 0 iterations and 0 nodes (1.27 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 2500 to 2500
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                2500.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             1.26
+Time (Wallclock seconds):       1.30
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       1.32   (Wallclock seconds):       1.36
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/43106c763dc941f1bace7303900cd8b8-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/43106c763dc941f1bace7303900cd8b8-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 555 COLUMNS
+At line 240556 RHS
+At line 241107 BOUNDS
+At line 281108 ENDATA
+Problem MODEL has 550 rows, 40000 columns and 120000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 2.1501e-10
+column inf 2.13004e-10
+using 160 columns not 3300
+Continuous objective value is 5000 - 0.04 seconds
+Cgl0004I processed model has 550 rows, 40000 columns (40000 integer (40000 of which binary)) and 120000 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 5000
+Cbc0038I Before mini branch and bound, 40000 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (0.46 seconds)
+Cbc0038I After 0.46 seconds - Feasibility pump exiting with objective of 5000 - took 0.02 seconds
+Cbc0012I Integer solution of 5000 found by feasibility pump after 0 iterations and 0 nodes (0.46 seconds)
+Cbc0001I Search completed - best objective 5000, took 0 iterations and 0 nodes (0.47 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 5000 to 5000
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                5000.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.46
+Time (Wallclock seconds):       0.50
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.58   (Wallclock seconds):       0.62
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/fafce406b1c14b56bd1cb1ccea62cde8-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/fafce406b1c14b56bd1cb1ccea62cde8-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 755 COLUMNS
+At line 720756 RHS
+At line 721507 BOUNDS
+At line 841508 ENDATA
+Problem MODEL has 750 rows, 120000 columns and 360000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 7.02054e-10
+column inf 4.59518e-10
+row inf 8.80827e-10
+column inf 1.94581e-09
+using 594 columns not 3300
+Problem is infeasible - 0.60 seconds
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.95   (Wallclock seconds):       0.99
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/161e432898ca493aa86f50512e4f00ab-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/161e432898ca493aa86f50512e4f00ab-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 955 COLUMNS
+At line 1200956 RHS
+At line 1201907 BOUNDS
+At line 1401908 ENDATA
+Problem MODEL has 950 rows, 200000 columns and 600000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 5.68043e-10
+column inf 2.74674e-10
+row inf 1.1451e-10
+column inf 1.93173e-10
+using 807 columns not 3600
+Problem is infeasible - 0.80 seconds
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       1.38   (Wallclock seconds):       1.44
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/88da5b6bbafb41d4b4294d815416bccf-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/88da5b6bbafb41d4b4294d815416bccf-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 915 COLUMNS
+At line 48916 RHS
+At line 49827 BOUNDS
+At line 57828 ENDATA
+Problem MODEL has 910 rows, 8000 columns and 24000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 500 - 0.01 seconds
+Cgl0003I 0 fixed, 0 tightened bounds, 200 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 200 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 200 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 200 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 200 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 200 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 200 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 200 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 200 strengthened rows, 0 substitutions
+Cgl0004I processed model has 910 rows, 8000 columns (8000 integer (8000 of which binary)) and 25800 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 10 integers unsatisfied sum - 5
+Cbc0038I Pass   1: suminf.    0.00000 (0) obj. 500 iterations 34
+Cbc0038I Solution found of 500
+Cbc0038I Before mini branch and bound, 7985 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (0.54 seconds)
+Cbc0038I After 0.54 seconds - Feasibility pump exiting with objective of 500 - took 0.01 seconds
+Cbc0012I Integer solution of 500 found by feasibility pump after 0 iterations and 0 nodes (0.54 seconds)
+Cbc0001I Search completed - best objective 500, took 0 iterations and 0 nodes (0.54 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 500 to 500
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                500.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.53
+Time (Wallclock seconds):       0.55
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.56   (Wallclock seconds):       0.58
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/dae42624af3e413f9a4daf0dde93ed34-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/dae42624af3e413f9a4daf0dde93ed34-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 955 COLUMNS
+At line 240956 RHS
+At line 241907 BOUNDS
+At line 281908 ENDATA
+Problem MODEL has 950 rows, 40000 columns and 120000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 7.00041e-11
+column inf 8.89986e-11
+using 71 columns not 3600
+Continuous objective value is 2500 - 0.04 seconds
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 100 strengthened rows, 0 substitutions
+Cgl0004I processed model has 950 rows, 40000 columns (40000 integer (40000 of which binary)) and 120900 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 2500
+Cbc0038I Before mini branch and bound, 40000 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (2.88 seconds)
+Cbc0038I After 2.88 seconds - Feasibility pump exiting with objective of 2500 - took 0.02 seconds
+Cbc0012I Integer solution of 2500 found by feasibility pump after 0 iterations and 0 nodes (2.88 seconds)
+Cbc0001I Search completed - best objective 2500, took 0 iterations and 0 nodes (2.89 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 2500 to 2500
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                2500.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             2.87
+Time (Wallclock seconds):       2.94
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       2.99   (Wallclock seconds):       3.07
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/39d57090f5d2469da1f9219d3272fbb3-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/39d57090f5d2469da1f9219d3272fbb3-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 1005 COLUMNS
+At line 481006 RHS
+At line 482007 BOUNDS
+At line 562008 ENDATA
+Problem MODEL has 1000 rows, 80000 columns and 240000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 1.71005e-10
+column inf 1.70998e-10
+using 150 columns not 3300
+Continuous objective value is 5000 - 0.08 seconds
+Cgl0004I processed model has 1000 rows, 80000 columns (80000 integer (80000 of which binary)) and 240000 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 12 integers unsatisfied sum - 6
+Cbc0038I Pass   1: suminf.    0.00000 (0) obj. 5000 iterations 382
+Cbc0038I Solution found of 5000
+Cbc0038I Before mini branch and bound, 79982 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (1.16 seconds)
+Cbc0038I After 1.16 seconds - Feasibility pump exiting with objective of 5000 - took 0.10 seconds
+Cbc0012I Integer solution of 5000 found by feasibility pump after 0 iterations and 0 nodes (1.17 seconds)
+Cbc0001I Search completed - best objective 5000, took 0 iterations and 0 nodes (1.18 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 5000 to 5000
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                5000.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             1.17
+Time (Wallclock seconds):       1.23
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       1.41   (Wallclock seconds):       1.48
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/0753123825cd49158d95c37624077718-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/0753123825cd49158d95c37624077718-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 1205 COLUMNS
+At line 1441206 RHS
+At line 1442407 BOUNDS
+At line 1682408 ENDATA
+Problem MODEL has 1200 rows, 240000 columns and 720000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 3.75026e-10
+column inf 2.48504e-10
+row inf 1.55808e-09
+column inf 1.83341e-09
+row inf 4.03196e-10
+column inf 7.24669e-10
+using 601 columns not 3960
+Continuous objective value is 15000 - 0.50 seconds
+Cgl0004I processed model has 1200 rows, 240000 columns (240000 integer (240000 of which binary)) and 720000 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 40 integers unsatisfied sum - 20
+Cbc0038I Pass   1: suminf.    0.00000 (0) obj. 15000 iterations 2510
+Cbc0038I Solution found of 15000
+Cbc0038I Before mini branch and bound, 239940 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (5.74 seconds)
+Cbc0038I After 5.74 seconds - Feasibility pump exiting with objective of 15000 - took 1.40 seconds
+Cbc0012I Integer solution of 15000 found by feasibility pump after 0 iterations and 0 nodes (5.76 seconds)
+Cbc0001I Search completed - best objective 15000, took 0 iterations and 0 nodes (5.81 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 15000 to 15000
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                15000.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             5.75
+Time (Wallclock seconds):       5.99
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       6.47   (Wallclock seconds):       6.74
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/55acbb96dce44280ae542e8ae1421d21-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/55acbb96dce44280ae542e8ae1421d21-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 1405 COLUMNS
+At line 2401406 RHS
+At line 2402807 BOUNDS
+At line 2802808 ENDATA
+Problem MODEL has 1400 rows, 400000 columns and 1200000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 4.04033e-10
+column inf 1.79003e-10
+row inf 6.20154e-09
+column inf 9.7959e-09
+row inf 3.66778e-09
+column inf 6.81288e-09
+Problem is infeasible - 4.29 seconds
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       5.48   (Wallclock seconds):       5.64
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/3aea701a986f4849b84b6e1ebd9f93f9-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/3aea701a986f4849b84b6e1ebd9f93f9-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 1365 COLUMNS
+At line 73366 RHS
+At line 74727 BOUNDS
+At line 86728 ENDATA
+Problem MODEL has 1360 rows, 12000 columns and 36000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 500 - 0.02 seconds
+Cgl0003I 0 fixed, 0 tightened bounds, 300 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 300 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 300 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 300 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 300 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 300 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 300 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 300 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 300 strengthened rows, 0 substitutions
+Cgl0004I processed model has 1360 rows, 12000 columns (12000 integer (12000 of which binary)) and 38700 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 19 integers unsatisfied sum - 6
+Cbc0038I Pass   1: suminf.    0.00000 (0) obj. 500 iterations 37
+Cbc0038I Solution found of 500
+Cbc0038I Before mini branch and bound, 11979 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (0.94 seconds)
+Cbc0038I After 0.94 seconds - Feasibility pump exiting with objective of 500 - took 0.01 seconds
+Cbc0012I Integer solution of 500 found by feasibility pump after 0 iterations and 0 nodes (0.94 seconds)
+Cbc0001I Search completed - best objective 500, took 0 iterations and 0 nodes (0.94 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 500 to 500
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                500.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.93
+Time (Wallclock seconds):       0.96
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.97   (Wallclock seconds):       1.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/a1b12b5833db4a8bacc747ededaa6aa4-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/a1b12b5833db4a8bacc747ededaa6aa4-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 1405 COLUMNS
+At line 361406 RHS
+At line 362807 BOUNDS
+At line 422808 ENDATA
+Problem MODEL has 1400 rows, 60000 columns and 180000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 4.60024e-11
+column inf 7.00006e-11
+using 65 columns not 5040
+Continuous objective value is 2500 - 0.06 seconds
+Cgl0003I 0 fixed, 0 tightened bounds, 150 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 150 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 150 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 150 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 150 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 150 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 150 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 150 strengthened rows, 0 substitutions
+Cgl0003I 0 fixed, 0 tightened bounds, 150 strengthened rows, 0 substitutions
+Cgl0004I processed model has 1400 rows, 60000 columns (60000 integer (60000 of which binary)) and 181350 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 2500
+Cbc0038I Before mini branch and bound, 60000 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (5.13 seconds)
+Cbc0038I After 5.13 seconds - Feasibility pump exiting with objective of 2500 - took 0.04 seconds
+Cbc0012I Integer solution of 2500 found by feasibility pump after 0 iterations and 0 nodes (5.14 seconds)
+Cbc0001I Search completed - best objective 2500, took 0 iterations and 0 nodes (5.15 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 2500 to 2500
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                2500.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             5.04
+Time (Wallclock seconds):       5.24
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       5.23   (Wallclock seconds):       5.45
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/cc08743ceb12440f92f6bbb111306da9-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/cc08743ceb12440f92f6bbb111306da9-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 1455 COLUMNS
+At line 721456 RHS
+At line 722907 BOUNDS
+At line 842908 ENDATA
+Problem MODEL has 1450 rows, 120000 columns and 360000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 1.60008e-10
+column inf 1.57e-10
+using 136 columns not 4785
+Continuous objective value is 5000 - 0.11 seconds
+Cgl0004I processed model has 1450 rows, 120000 columns (120000 integer (120000 of which binary)) and 360000 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 5000
+Cbc0038I Before mini branch and bound, 120000 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (1.95 seconds)
+Cbc0038I After 1.95 seconds - Feasibility pump exiting with objective of 5000 - took 0.08 seconds
+Cbc0012I Integer solution of 5000 found by feasibility pump after 0 iterations and 0 nodes (1.96 seconds)
+Cbc0001I Search completed - best objective 5000, took 0 iterations and 0 nodes (1.99 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 5000 to 5000
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                5000.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             1.97
+Time (Wallclock seconds):       2.07
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       2.33   (Wallclock seconds):       2.46
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/04c1ae0e4982420d8a990cc94b84d348-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/04c1ae0e4982420d8a990cc94b84d348-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 1655 COLUMNS
+At line 2161656 RHS
+At line 2163307 BOUNDS
+At line 2523308 ENDATA
+Problem MODEL has 1650 rows, 360000 columns and 1080000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 3.36024e-10
+column inf 2.83004e-10
+row inf 1.11298e-09
+column inf 1.66846e-09
+using 474 columns not 5445
+Continuous objective value is 15000 - 0.49 seconds
+Cgl0004I processed model has 1650 rows, 360000 columns (360000 integer (360000 of which binary)) and 1080000 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 15000
+Cbc0038I Before mini branch and bound, 360000 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (7.59 seconds)
+Cbc0038I After 7.59 seconds - Feasibility pump exiting with objective of 15000 - took 0.23 seconds
+Cbc0012I Integer solution of 15000 found by feasibility pump after 0 iterations and 0 nodes (7.62 seconds)
+Cbc0001I Search completed - best objective 15000, took 0 iterations and 0 nodes (7.70 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 15000 to 15000
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                15000.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             7.47
+Time (Wallclock seconds):       8.01
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       8.60   (Wallclock seconds):       9.27
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /Users/rafa/.pyenv/versions/3.13.0/lib/python3.13/site-packages/pulp/solverdir/cbc/osx/64/cbc /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/2855e817ed1349fabe1f7ac264132a96-pulp.mps -sec 60 -infeas -fracIntegrality=0.0001 -timeMode elapsed -branch -printingOptions all -solution /var/folders/g5/7qjp5y7n1lq5c4dbgxml0cpr0000gn/T/2855e817ed1349fabe1f7ac264132a96-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 1855 COLUMNS
+At line 3601856 RHS
+At line 3603707 BOUNDS
+At line 4203708 ENDATA
+Problem MODEL has 1850 rows, 600000 columns and 1800000 elements
+Coin0008I MODEL read with 0 errors
+seconds was changed from 1e+100 to 60
+String of -fracIntegrality=0.0001 is illegal for double parameter infeasibilityWeight value remains 0
+Option for timeMode changed from cpu to elapsed
+row inf 2.04018e-10
+column inf 1.32002e-10
+row inf 5.5953e-10
+column inf 5.14505e-10
+row inf 1.5049e-09
+column inf 1.33802e-09
+Continuous objective value is 25000 - 2.20 seconds
+Cgl0004I processed model has 1850 rows, 600000 columns (600000 integer (600000 of which binary)) and 1800000 elements
+Cutoff increment increased from 1e-05 to 49.9999
+Cbc0038I Initial state - 55 integers unsatisfied sum - 22.6667
+Cbc0038I Pass   1: suminf.    0.00000 (0) obj. 25000 iterations 5062
+Cbc0038I Solution found of 25000
+Cbc0038I Before mini branch and bound, 599925 integers at bound fixed and 0 continuous
+Cbc0038I Mini branch and bound did not improve solution (32.06 seconds)
+Cbc0038I After 32.07 seconds - Feasibility pump exiting with objective of 25000 - took 15.27 seconds
+Cbc0012I Integer solution of 25000 found by feasibility pump after 0 iterations and 0 nodes (32.14 seconds)
+Cbc0001I Search completed - best objective 25000, took 0 iterations and 0 nodes (32.31 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 25000 to 25000
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                25000.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             31.65
+Time (Wallclock seconds):       33.03
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       33.49   (Wallclock seconds):       35.01
+
+Analisando para 10 salas...
+  - 10 eventos
+  - 50 eventos
+  - 100 eventos
+  - 300 eventos
+  - 500 eventos
+Analisando para 50 salas...
+  - 10 eventos
+  - 50 eventos
+  - 100 eventos
+  - 300 eventos
+  - 500 eventos
+Analisando para 100 salas...
+  - 10 eventos
+  - 50 eventos
+  - 100 eventos
+  - 300 eventos
+  - 500 eventos
+Analisando para 150 salas...
+  - 10 eventos
+  - 50 eventos
+  - 100 eventos
+  - 300 eventos
+  - 500 eventos

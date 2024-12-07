@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from pulp import LpProblem, LpVariable, LpBinary, lpSum, LpMinimize, LpStatus, PULP_CBC_CMD
 import time
 import argparse
-import random
 
 def load_data(events_file='events.json', rooms_file='rooms.json', use_fake_data=False, num_events=0, num_rooms=0):
     """
@@ -31,7 +30,7 @@ def load_data(events_file='events.json', rooms_file='rooms.json', use_fake_data=
 
 def generate_fake_data(num_events, num_rooms):
     """
-    Gera dados falsos para eventos e salas.
+    Gera dados falsos para eventos e salas usando valores constantes.
 
     Args:
         num_events (int): Número de eventos a serem gerados.
@@ -40,12 +39,21 @@ def generate_fake_data(num_events, num_rooms):
     Returns:
         tuple: Uma tupla contendo a lista de eventos e a lista de salas.
     """
+    # Definições constantes (você pode alterar conforme desejar)
+    # Por exemplo, todos os eventos duram 2 horas e têm 50 participantes.
+    EVENT_DURATION = 2
+    EVENT_PARTICIPANTS = 50
+    
+    # Todas as salas têm capacidade 100 e disponibilidade das 9h às 18h
+    ROOM_CAPACITY = 100
+    ROOM_AVAILABILITY = [[9, 18]]
+
     events = []
     for i in range(num_events):
         event = {
             'id': f'Evento_{i+1}',
-            'duration': random.randint(1, 4),  # Duração entre 1 e 4 horas
-            'participants': random.randint(10, 100)  # Participantes entre 10 e 100
+            'duration': EVENT_DURATION,
+            'participants': EVENT_PARTICIPANTS
         }
         events.append(event)
 
@@ -53,8 +61,8 @@ def generate_fake_data(num_events, num_rooms):
     for i in range(num_rooms):
         room = {
             'id': f'Sala_{i+1}',
-            'capacity': random.randint(20, 120),  # Capacidade entre 20 e 120
-            'availability': [[9, 18]]  # Disponibilidade das 9h às 18h
+            'capacity': ROOM_CAPACITY,
+            'availability': ROOM_AVAILABILITY
         }
         rooms.append(room)
 
@@ -167,10 +175,8 @@ def solve_problem(prob, max_seconds=None):
         int: O status da solução.
     """
     if max_seconds is not None:
-        # Cria uma instância do solver CBC com limite de tempo e opções extras
         solver = PULP_CBC_CMD(msg=1, timeLimit=max_seconds, options=['infeas', 'fracIntegrality=0.0001'])
     else:
-        # Sem limite de tempo
         solver = PULP_CBC_CMD(msg=1, options=['infeas', 'fracIntegrality=0.0001'])
 
     prob.solve(solver)
@@ -233,16 +239,15 @@ def plot_schedule(allocation, events, rooms):
         events (list): Lista de eventos.
         rooms (list): Lista de salas.
     """
+    import matplotlib.pyplot as plt
+    import numpy as np
+
     fig, ax = plt.subplots(figsize=(10, 6))
 
-    # Cria uma paleta de cores para os eventos
     event_ids = [event['id'] for event in events]
     colors = plt.get_cmap('tab20')
-
-    # Mapeia cada evento a uma cor distinta
     color_dict = {event_id: colors(i / len(event_ids)) for i, event_id in enumerate(event_ids)}
 
-    # Prepara os dados para o gráfico
     room_ids = [room['id'] for room in rooms]
     y_ticks = np.arange(len(room_ids))
     height = 0.8
@@ -254,7 +259,6 @@ def plot_schedule(allocation, events, rooms):
         ax.text(alloc['Start'] + (alloc['End'] - alloc['Start']) / 2, room_idx,
                 alloc['Event'], va='center', ha='center', color='black', fontsize=9)
 
-    # Configurações do gráfico
     ax.set_yticks(y_ticks)
     ax.set_yticklabels(room_ids)
     ax.set_xlabel('Horário')
@@ -293,6 +297,7 @@ def code_complexity_analysis(event_counts, room_counts, time_limit=None):
             execution_times[num_rooms].append(end_time - start_time)
 
     # Plotando o gráfico de tempo de execução vs número de eventos para diferentes números de salas
+    import matplotlib.pyplot as plt
     plt.figure(figsize=(10, 6))
     for num_rooms, times in execution_times.items():
         plt.plot(event_counts, times, marker='o', label=f'{num_rooms} Salas')
