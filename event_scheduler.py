@@ -1,7 +1,7 @@
 import json
 import numpy as np
 import matplotlib.pyplot as plt
-from pulp import LpProblem, LpVariable, LpBinary, lpSum, LpMinimize, LpStatus
+from pulp import LpProblem, LpVariable, LpBinary, lpSum, LpMinimize, LpStatus, PULP_CBC_CMD
 import time
 import argparse
 import random
@@ -154,17 +154,20 @@ def create_optimization_problem(events, rooms, variables, possible_starts):
                 prob += lpSum(overlapping_events) <= 1, f"No_overlap_room_{idx_r}_time_{t}"
     return prob
 
-def solve_problem(prob):
+def solve_problem(prob, max_seconds=60):
     """
-    Resolve o problema de otimização linear.
+    Resolve o problema de otimização linear definindo um limite de tempo e ajustando parâmetros do solver.
 
     Args:
         prob (LpProblem): O problema de otimização linear.
+        max_seconds (int): Tempo máximo (em segundos) para o solver tentar encontrar uma solução.
 
     Returns:
         int: O status da solução.
     """
-    prob.solve()
+    # Cria uma instância do solver CBC com limite de tempo e opções extras
+    solver = PULP_CBC_CMD(msg=1, timeLimit=max_seconds, options=['infeas', 'fracIntegrality=0.0001'])
+    prob.solve(solver)
     return prob.status
 
 def collect_allocation(variables, events, rooms):
@@ -201,7 +204,17 @@ def display_results(status, allocation):
         status (int): O status da solução.
         allocation (list): Lista de alocações dos eventos.
     """
-    print(f"Status da solução: {LpStatus[status]}\n")
+    solution_status = LpStatus[status]
+    print(f"Status da solução: {solution_status}\n")
+
+    if solution_status == 'Infeasible':
+        print("Não foi possível encontrar uma alocação que atenda a todas as restrições.")
+        return
+
+    if len(allocation) == 0:
+        print("Não há alocações realizadas (pode não ter sido encontrada uma solução viável).")
+        return
+
     for alloc in allocation:
         print(f"Evento '{alloc['Event']}' alocado na '{alloc['Room']}' iniciando às {alloc['Start']}h até às {alloc['End']}h.")
 
