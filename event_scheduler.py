@@ -43,7 +43,7 @@ def generate_fake_data(num_events, num_rooms):
     events = []
     for i in range(num_events):
         event = {
-            'name': f'Evento {i+1}',
+            'id': f'Evento_{i+1}',
             'duration': random.randint(1, 4),  # Duração entre 1 e 4 horas
             'participants': random.randint(10, 100)  # Participantes entre 10 e 100
         }
@@ -52,7 +52,7 @@ def generate_fake_data(num_events, num_rooms):
     rooms = []
     for i in range(num_rooms):
         room = {
-            'name': f'Sala {i+1}',
+            'id': f'Sala_{i+1}',
             'capacity': random.randint(20, 120),  # Capacidade entre 20 e 120
             'availability': [[9, 18]]  # Disponibilidade das 9h às 18h
         }
@@ -186,8 +186,8 @@ def collect_allocation(variables, events, rooms):
             room = rooms[idx_r]
             end_time = start + event['duration']
             allocation.append({
-                'Event': event['name'],
-                'Room': room['name'],
+                'Event': event['id'],
+                'Room': room['id'],
                 'Start': start,
                 'End': end_time
             })
@@ -217,19 +217,19 @@ def plot_schedule(allocation, events, rooms):
     fig, ax = plt.subplots(figsize=(10, 6))
 
     # Cria uma paleta de cores para os eventos
-    event_names = [event['name'] for event in events]
+    event_ids = [event['id'] for event in events]
     colors = plt.get_cmap('tab20')
 
     # Mapeia cada evento a uma cor distinta
-    color_dict = {event_name: colors(i / len(event_names)) for i, event_name in enumerate(event_names)}
+    color_dict = {event_id: colors(i / len(event_ids)) for i, event_id in enumerate(event_ids)}
 
     # Prepara os dados para o gráfico
-    rooms_names = [room['name'] for room in rooms]
-    y_ticks = np.arange(len(rooms_names))
+    room_ids = [room['id'] for room in rooms]
+    y_ticks = np.arange(len(room_ids))
     height = 0.8
 
     for alloc in allocation:
-        room_idx = rooms_names.index(alloc['Room'])
+        room_idx = room_ids.index(alloc['Room'])
         ax.barh(room_idx, alloc['End'] - alloc['Start'], left=alloc['Start'], height=height,
                 align='center', color=color_dict[alloc['Event']], edgecolor='black')
         ax.text(alloc['Start'] + (alloc['End'] - alloc['Start']) / 2, room_idx,
@@ -237,7 +237,7 @@ def plot_schedule(allocation, events, rooms):
 
     # Configurações do gráfico
     ax.set_yticks(y_ticks)
-    ax.set_yticklabels(rooms_names)
+    ax.set_yticklabels(room_ids)
     ax.set_xlabel('Horário')
     ax.set_ylabel('Salas')
     ax.set_title('Programação de Eventos')
@@ -248,7 +248,7 @@ def plot_schedule(allocation, events, rooms):
 
     plt.tight_layout()
     plt.show()
-
+    
 def code_complexity_analysis(event_counts, room_counts):
     """
     Realiza a análise de complexidade do código para diferentes quantidades de eventos e salas.
@@ -284,7 +284,6 @@ def code_complexity_analysis(event_counts, room_counts):
     plt.grid(True)
     plt.show()
 
-
 def main():
     """
     Função principal que coordena a execução do programa.
@@ -309,7 +308,6 @@ def main():
         allocation = collect_allocation(variables, events, rooms)
         display_results(status, allocation)
         plot_schedule(allocation, events, rooms)
-
 
 if __name__ == "__main__":
     main()

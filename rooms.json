@@ -1,21 +1,21 @@
 [
     {
-        "name": "Auditório Principal",
+        "id": "Auditório Principal",
         "capacity": 150,
         "availability": [[9, 13], [14, 18]]
     },
     {
-        "name": "Sala Multiuso",
+        "id": "Sala Multiuso",
         "capacity": 100,
         "availability": [[9, 17]]
     },
     {
-        "name": "Sala de Conferências",
+        "id": "Sala de Conferências",
         "capacity": 80,
         "availability": [[10, 12], [13, 17]]
     },
     {
-        "name": "Sala de Reuniões",
+        "id": "Sala de Reuniões",
         "capacity": 50,
         "availability": [[9, 11], [12, 16]]
     }

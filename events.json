@@ -1,26 +1,26 @@
 [
     {
-        "name": "Conferência de Tecnologia",
+        "id": "Conferência de Tecnologia",
         "duration": 4,
         "participants": 150
     },
     {
-        "name": "Workshop de Programação",
+        "id": "Workshop de Programação",
         "duration": 2,
         "participants": 75
     },
     {
-        "name": "Seminário de Saúde",
+        "id": "Seminário de Saúde",
         "duration": 3,
         "participants": 120
     },
     {
-        "name": "Palestra Motivacional",
+        "id": "Palestra Motivacional",
         "duration": 1,
         "participants": 50
     },
     {
-        "name": "Sessão de Treinamento",
+        "id": "Sessão de Treiidnto",
         "duration": 2,
         "participants": 80
     }
