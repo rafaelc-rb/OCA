@@ -154,19 +154,25 @@ def create_optimization_problem(events, rooms, variables, possible_starts):
                 prob += lpSum(overlapping_events) <= 1, f"No_overlap_room_{idx_r}_time_{t}"
     return prob
 
-def solve_problem(prob, max_seconds=60):
+def solve_problem(prob, max_seconds=None):
     """
-    Resolve o problema de otimização linear definindo um limite de tempo e ajustando parâmetros do solver.
+    Resolve o problema de otimização linear definindo um limite de tempo (se fornecido) e ajustando parâmetros do solver.
 
     Args:
         prob (LpProblem): O problema de otimização linear.
-        max_seconds (int): Tempo máximo (em segundos) para o solver tentar encontrar uma solução.
+        max_seconds (int or None): Tempo máximo (em segundos) para o solver tentar encontrar uma solução.
+                                   Caso None, não será imposto limite de tempo.
 
     Returns:
         int: O status da solução.
     """
-    # Cria uma instância do solver CBC com limite de tempo e opções extras
-    solver = PULP_CBC_CMD(msg=1, timeLimit=max_seconds, options=['infeas', 'fracIntegrality=0.0001'])
+    if max_seconds is not None:
+        # Cria uma instância do solver CBC com limite de tempo e opções extras
+        solver = PULP_CBC_CMD(msg=1, timeLimit=max_seconds, options=['infeas', 'fracIntegrality=0.0001'])
+    else:
+        # Sem limite de tempo
+        solver = PULP_CBC_CMD(msg=1, options=['infeas', 'fracIntegrality=0.0001'])
+
     prob.solve(solver)
     return prob.status
 
@@ -261,14 +267,15 @@ def plot_schedule(allocation, events, rooms):
 
     plt.tight_layout()
     plt.show()
-    
-def code_complexity_analysis(event_counts, room_counts):
+
+def code_complexity_analysis(event_counts, room_counts, time_limit=None):
     """
     Realiza a análise de complexidade do código para diferentes quantidades de eventos e salas.
 
     Args:
         event_counts (list): Lista com as quantidades de eventos a serem testadas.
         room_counts (list): Lista com as quantidades de salas a serem testadas.
+        time_limit (int or None): Tempo limite (em segundos) para o solver.
     """
     execution_times = {num_rooms: [] for num_rooms in room_counts}
 
@@ -281,7 +288,7 @@ def code_complexity_analysis(event_counts, room_counts):
             room_available_times = process_room_availabilities(rooms)
             variables, possible_starts = generate_possible_starts(events, rooms, room_available_times)
             prob = create_optimization_problem(events, rooms, variables, possible_starts)
-            solve_problem(prob)
+            solve_problem(prob, max_seconds=time_limit)
             end_time = time.time()
             execution_times[num_rooms].append(end_time - start_time)
 
@@ -305,19 +312,23 @@ def main():
     parser.add_argument('--analysis', action='store_true', help='Executa a análise de complexidade do código')
     parser.add_argument('--event_counts', type=str, default='5,10,30,50', help='Quantidades de eventos para análise, separadas por vírgula')
     parser.add_argument('--num_rooms', type=str, default='5,10,15', help='Quantidades de salas para análise, separadas por vírgula')
+    parser.add_argument('--time_limit', type=int, help='Tempo limite (em segundos) para o solver')
+
     args = parser.parse_args()
+
+    time_limit = args.time_limit
 
     if args.analysis:
         event_counts = [int(x) for x in args.event_counts.split(',')]
         room_counts = [int(x) for x in args.num_rooms.split(',')]
-        code_complexity_analysis(event_counts, room_counts)
+        code_complexity_analysis(event_counts, room_counts, time_limit=time_limit)
     else:
         # Fluxo padrão
         events, rooms = load_data()
         room_available_times = process_room_availabilities(rooms)
         variables, possible_starts = generate_possible_starts(events, rooms, room_available_times)
         prob = create_optimization_problem(events, rooms, variables, possible_starts)
-        status = solve_problem(prob)
+        status = solve_problem(prob, max_seconds=time_limit)
         allocation = collect_allocation(variables, events, rooms)
         display_results(status, allocation)
         plot_schedule(allocation, events, rooms)
